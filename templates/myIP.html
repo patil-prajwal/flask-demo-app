@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>User / Client IP Address Finder</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+  <div class="main">
+    <p class="sign" align="center">IP Address Finder</p>
+    <div class="sign" align="center">
+    {% if ip %}
+      <h1>Hello Your IP Address is {{ ip }} </h1>
+    {% else %}
+      <h1>Hello, Not able to retrive IP , Are you using Proxy ?</h1>
+    {% endif %}
+    </div>
+
+  </div>
+            
+</body>
+
+</html>
