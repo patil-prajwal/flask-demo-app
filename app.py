@@ -8,13 +8,34 @@ app.secret_key = b"5ce934008d5a"
 @app.route("/index")
 @app.route("/")
 def home():
-    return render_template("home.html")
+
+    title = "App Home Page"
+    text = "Hi There , You're At Home Page of App !!"
+    return render_template("page.html", title=title, text=text)
 
 
 @app.route('/hello/')
 @app.route('/hello/<name>')
 def hello(name=None):
-    return render_template("hello.html", name=name)
+
+    title = "App Home Page"
+    if not name:
+        text = "Hello, World!  It Is Home Page"
+    else:
+        text = f"Hello {name} !!"
+    return render_template("page.html", name=name, title=title, text=text)
+
+
+@app.route('/myIP')
+def myIP():
+
+    ip = request.remote_addr
+    title = "User / Client IP Address Finder"
+    if not ip:
+        text = "Coudnt Get Your IP"
+    else:
+        text = f"Hello Your IP Address is {ip}"
+    return render_template("page.html", ip=ip, title=title, text=text)
 
 
 @app.route('/test')
@@ -22,15 +43,12 @@ def test():
     return app.send_static_file("test.html")
 
 
-@app.route('/myIP')
-def myIP():
-    ip = request.remote_addr
-    return render_template("myIP.html", ip=ip)
-
-
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('page_not_found.html'), 404
+
+    title = "Page Not Found Error"
+    text = "Your Requested Page Not Found !!!"
+    return render_template('page.html', title=title, text=text), 404
 
 
 if __name__ == '__main__':
