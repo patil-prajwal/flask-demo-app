@@ -53,6 +53,22 @@ This is a simple Python Flask application that demonstrates various routes and f
 
 5. Open a web browser and access the routes described above.
 
+## Run in Docker Container
+
+1. Pull the container image from Docker Registry
+
+```bash
+  docker pull 227prajwal/flask-app
+```
+
+2. Run the Docker Container using the following command:
+
+```bash
+  docker run -dit -p 5000:5000 227prajwal/flask-app
+```
+
+3. Open a web browser and access the routes described above.
+
 ## Author
 
 - Prajwal Patil
